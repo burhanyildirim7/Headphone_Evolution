@@ -11,6 +11,11 @@ TagManager:
   - finish
   - collectible
   - elmas
+  - DegersizEsya
+  - Missile
+  - ENGEL
+  - increaseDoor
+  - decreaseDoor
   layers:
   - Default
   - TransparentFX
