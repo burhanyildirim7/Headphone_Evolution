@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EvolutionControl : MonoBehaviour
 {
+
     public int year = 0;
+    public Text yearText;
     public int changeHeadphoneYear;
 
     public List<GameObject> headphones = new List<GameObject>();
@@ -17,7 +20,7 @@ public class EvolutionControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(year);
+        yearText.text = "Þu Anki Yýl = " + year;
 
         ChangeHeadphone();
     }
