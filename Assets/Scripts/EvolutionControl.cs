@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class EvolutionControl : MonoBehaviour
 {
-    private int year = 0;
+    public int year = 0;
     public int changeHeadphoneYear;
 
-    public GameObject headphone1;
-    public GameObject headphone2;
-    public GameObject headphone3;
+    public List<GameObject> headphones = new List<GameObject>();
+
     void Start()
     {
 
@@ -25,45 +24,32 @@ public class EvolutionControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "collectible")
-        {
-            year += 10;
-            Destroy(other.gameObject);
-        }
 
-        if (other.gameObject.tag == "engel")
-        {
-            year -= 10;
-            Destroy(other.gameObject);
-          
-        }
 
 
     }
 
     void ChangeHeadphone()  //Her kaç yýlda bir kulaklýk deðiþecek kodu;
     {
-      
-            if (year >= changeHeadphoneYear && year < changeHeadphoneYear*2)
+        for (int i = 0; i < headphones.Count; i++)
+        {
+
+       
+            if (year >= changeHeadphoneYear * (i + 1))
             {
-                headphone1.SetActive(true);
-                headphone2.SetActive(false);
-                headphone3.SetActive(false);
+                headphones[i].SetActive(true);
+            
+              
+
+           
+            }
+            else
+            {
+                headphones[i].SetActive(false);
             }
 
-            else if (year >= changeHeadphoneYear*2 && year< changeHeadphoneYear * 3)
-            {
-                headphone1.SetActive(false);
-                headphone2.SetActive(true);
-                headphone3.SetActive(false);
-            }
+        
 
-            else if (year >= changeHeadphoneYear*3)
-            {
-                headphone1.SetActive(false);
-                headphone2.SetActive(false);
-                headphone3.SetActive(true);
-            }
-     
+        }
     }
 }
