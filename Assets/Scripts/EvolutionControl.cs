@@ -32,24 +32,20 @@ public class EvolutionControl : MonoBehaviour
     void ChangeHeadphone()  //Her kaç yýlda bir kulaklýk deðiþecek kodu;
     {
         for (int i = 0; i < headphones.Count; i++)
-        {
-
-       
+        {  
             if (year >= changeHeadphoneYear * (i + 1))
             {
+                for (int a = 0; a < headphones.Count; a++)
+                {
+                    headphones[a].SetActive(false);
+                }
                 headphones[i].SetActive(true);
-            
-              
-
-           
+             
             }
             else
             {
                 headphones[i].SetActive(false);
             }
-
-        
-
         }
     }
 }
