@@ -14,6 +14,7 @@ public class EvolutionControl : MonoBehaviour
 
     public ParticleSystem sadFace;
     public ParticleSystem happyFace;
+    public ParticleSystem upgradeEffect;
 
 
     GameObject currentHeadphone;
@@ -73,14 +74,19 @@ public class EvolutionControl : MonoBehaviour
         if (other.tag == "increaseDoor")
         {
             year += other.gameObject.GetComponent<DoorControl>().intValueOfDoor;
-
+           
             ChangeHeadphone();
 
         }
 
         if (other.tag == "decreaseDoor")
         {
+            if (Mathf.Abs(other.gameObject.GetComponent<DoorControl>().intValueOfDoor)>year)  // GameOver
+            {
+                Time.timeScale = 0;
+            }
             year += other.gameObject.GetComponent<DoorControl>().intValueOfDoor;
+
             ChangeHeadphone();
 
 
@@ -90,10 +96,12 @@ public class EvolutionControl : MonoBehaviour
         if (currentHeadphoneLevel < previousHeadphoneLevel && currentHeadphone != previousHeadphone)
         {
             sadFace.Play();
+
         }
         else if (currentHeadphoneLevel > previousHeadphoneLevel && currentHeadphone != previousHeadphone && headphones[0].activeSelf)
         {
             happyFace.Play();
+            upgradeEffect.Play();
         }
 
 
@@ -120,11 +128,13 @@ public class EvolutionControl : MonoBehaviour
                 if (headphones[0].activeSelf)
                 {
                     happyFace.Play();
+                    upgradeEffect.Play();
                 }
                 headphones[i - 1].SetActive(false);
                 headphones[i].SetActive(true);
                 currentHeadphoneLevel = i;
                 currentHeadphone = headphones[i].gameObject;
+               
 
             }
             else

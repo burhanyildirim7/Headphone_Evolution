@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartingEvents();
+        transform.eulerAngles = new Vector3(0, 180, 0);
     }
 
     /// <summary>
@@ -53,15 +54,10 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("finish")) 
         {
-            // finishe collider eklenecek levellerde...
-            // FINISH NOKTASINA GELINCE YAPILACAKLAR... Totalscore artırma, x işlemleri, efektler v.s. v.s.
-            GameController.instance.isContinue = false;
-            GameController.instance.ScoreCarp(7);  // Bu fonksiyon normalde x ler hesaplandıktan sonra çağrılacak. Parametre olarak x i alıyor. 
-            // x değerine göre oyuncunun total scoreunu hesaplıyor.. x li olmayan oyunlarda parametre olarak 1 gönderilecek.
-            UIController.instance.ActivateWinScreen(); // finish noktasına gelebildiyse her türlü win screen aktif edilecek.. ama burada değil..
-            // normal de bu kodu x ler hesaplandıktan sonra çağıracağız. Ve bu kod çağrıldığında da kazanılan puanlar animasyonlu şekilde artacak..
+            FinishScene();
 
-            
+
+
         }
 
     }
@@ -80,6 +76,13 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(0, transform.position.y, 0);
         GetComponent<Collider>().enabled = true;
 
+    }
+
+    void FinishScene()
+    {
+        GameController.instance.isContinue = false;
+        GameController.instance.ScoreCarp(7);
+        UIController.instance.ActivateWinScreen();
     }
 
 }
