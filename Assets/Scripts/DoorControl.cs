@@ -8,6 +8,7 @@ public class DoorControl : MonoBehaviour
 {
     public Text valueOfDoorText;
     public string valueOfDoor;
+    public int intValueOfDoor;
 
     GameObject EvolutionControl;
 
@@ -16,14 +17,9 @@ public class DoorControl : MonoBehaviour
         valueOfDoorText.text = "" + valueOfDoor;
 
         EvolutionControl = GameObject.FindGameObjectWithTag("Player");
+
+        intValueOfDoor = int.Parse(valueOfDoor);
    }
 
-    // Update is called once per frame
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            other.gameObject.GetComponent<EvolutionControl>().year += int.Parse(valueOfDoor);
-        }
-    }
+
 }
