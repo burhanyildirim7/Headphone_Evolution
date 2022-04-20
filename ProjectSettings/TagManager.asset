@@ -16,6 +16,7 @@ TagManager:
   - ENGEL
   - increaseDoor
   - decreaseDoor
+  - finishWall
   layers:
   - Default
   - TransparentFX

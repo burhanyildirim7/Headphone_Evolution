@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public bool xVarMi = true;
     public bool collectibleVarMi = true;
 
-
+    GameObject karakterPaketi;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartingEvents();
-     
+        karakterPaketi = GameObject.FindGameObjectWithTag("KarakterPaketi");
     }
 
     /// <summary>
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
+       
 
         if (other.CompareTag("collectible"))
         {
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
 
         }
+      
 
     }
 
@@ -84,5 +87,6 @@ public class PlayerController : MonoBehaviour
         GameController.instance.ScoreCarp(7);
         UIController.instance.ActivateWinScreen();
     }
+
 
 }

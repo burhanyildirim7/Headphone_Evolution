@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class KarakterPaketiMovement : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-
+    [SerializeField] public float _speed;
+    int totalYear;
     void Start()
     {
      
@@ -24,5 +24,12 @@ public class KarakterPaketiMovement : MonoBehaviour
         }
         
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+      
+
+    }
+
 
 }
