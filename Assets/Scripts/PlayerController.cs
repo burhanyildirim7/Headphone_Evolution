@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartingEvents();
-        transform.eulerAngles = new Vector3(0, 180, 0);
+     
     }
 
     /// <summary>

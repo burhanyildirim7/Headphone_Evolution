@@ -16,6 +16,7 @@ public class EvolutionControl : MonoBehaviour
     public ParticleSystem happyFace;
     public ParticleSystem upgradeEffect;
 
+    Animator playerAnim;
 
     GameObject currentHeadphone;
     GameObject previousHeadphone;
@@ -23,11 +24,14 @@ public class EvolutionControl : MonoBehaviour
     int currentHeadphoneLevel;
     int previousHeadphoneLevel;
 
-
+  
     
     void Start()
     {
         currentHeadphone = headphones[0];
+        playerAnim = GetComponent<Animator>();
+
+     
     }
 
     // Update is called once per frame
@@ -39,37 +43,12 @@ public class EvolutionControl : MonoBehaviour
         {
             year = 0;
         }
+
+      
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        /*
-        if (other.tag == "increaseDoor")
-        {
-            year += other.gameObject.GetComponent<DoorControl>().intValueOfDoor;
-         
-            ChangeHeadphone();
-
-        }
-
-        if (other.tag == "decreaseDoor")
-        {
-            year += other.gameObject.GetComponent<DoorControl>().intValueOfDoor;
-            ChangeHeadphone();
-
-            
-   
-        }
-
-         if (currentHeadphoneLevel < previousHeadphoneLevel && currentHeadphoneLevel!=previousHeadphoneLevel)
-        {
-            sadFace.Play();
-        }
-        else if (currentHeadphoneLevel > previousHeadphoneLevel && currentHeadphoneLevel != previousHeadphoneLevel)
-        {
-            happyFace.Play();
-        }
-        */
 
         if (other.tag == "increaseDoor")
         {
@@ -93,15 +72,20 @@ public class EvolutionControl : MonoBehaviour
 
         }
 
+   
+
         if (currentHeadphoneLevel < previousHeadphoneLevel && currentHeadphone != previousHeadphone)
         {
             sadFace.Play();
+          
 
         }
         else if (currentHeadphoneLevel > previousHeadphoneLevel && currentHeadphone != previousHeadphone && headphones[0].activeSelf)
         {
             happyFace.Play();
             upgradeEffect.Play();
+            playerAnim.SetBool("turnAround", true);
+           
         }
 
 
@@ -125,13 +109,15 @@ public class EvolutionControl : MonoBehaviour
 
             if (year >= changeHeadphoneYear * i)
             {
-                if (headphones[0].activeSelf)
+                if (headphones[i-1].activeSelf)
                 {
                     happyFace.Play();
                     upgradeEffect.Play();
+                    StartCoroutine(AnimatorControl());
                 }
                 headphones[i - 1].SetActive(false);
                 headphones[i].SetActive(true);
+
                 currentHeadphoneLevel = i;
                 currentHeadphone = headphones[i].gameObject;
                
@@ -142,13 +128,19 @@ public class EvolutionControl : MonoBehaviour
                 headphones[i].SetActive(false);
             }
         }
-       
-       
 
 
 
 
 
+
+    }
+
+    IEnumerator AnimatorControl()
+    {
+        playerAnim.SetBool("turnAround", true);
+        yield return new WaitForSeconds(1);
+        playerAnim.SetBool("turnAround", false);
     }
 
  
