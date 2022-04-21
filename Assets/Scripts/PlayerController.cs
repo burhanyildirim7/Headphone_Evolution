@@ -61,6 +61,17 @@ public class PlayerController : MonoBehaviour
 
 
         }
+
+        else if (other.gameObject.tag == "finishWall")
+        {
+            GameObject.FindGameObjectWithTag("KarakterPaketi").GetComponent<KarakterPaketiMovement>()._speed = 0;
+           
+            //gameObject.transform.parent = null;
+            karakterPaketi.transform.DOMoveX(0,1).OnComplete(()=> karakterPaketi.transform.DOMoveY(15,1));
+            
+
+            Debug.Log("Temas Var");
+        }
       
 
     }
