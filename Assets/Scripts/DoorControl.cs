@@ -46,7 +46,7 @@ public class DoorControl : MonoBehaviour
         else if (year)
         {
             valueOfDoorText.text = "" + valueOfDoor + " YEAR";
-            intValueOfDoor = int.Parse(valueOfDoor) / 54;
+            intValueOfDoor = int.Parse(valueOfDoor);
         }
     }
 

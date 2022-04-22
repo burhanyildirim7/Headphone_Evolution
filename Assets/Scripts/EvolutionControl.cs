@@ -18,17 +18,15 @@ public class EvolutionControl : MonoBehaviour
 
     Animator playerAnim;
 
-    GameObject currentHeadphone;
-    GameObject previousHeadphone;
 
     int currentHeadphoneLevel;
     int previousHeadphoneLevel;
 
-  
+    bool headphoneBetter;
     
     void Start()
     {
-        currentHeadphone = headphones[0];
+      
         playerAnim = GetComponent<Animator>();
 
      
@@ -44,7 +42,7 @@ public class EvolutionControl : MonoBehaviour
             year = 0;
         }
 
-        Debug.Log(year);
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,62 +70,55 @@ public class EvolutionControl : MonoBehaviour
 
         }
 
-   /*
 
-        if (currentHeadphoneLevel < previousHeadphoneLevel && currentHeadphone != previousHeadphone)
-        {
-            sadFace.Play();
-          
 
-        }
-        else if (currentHeadphoneLevel > previousHeadphoneLevel && currentHeadphone != previousHeadphone && headphones[0].activeSelf)
-        {
-            happyFace.Play();
-            upgradeEffect.Play();
-            playerAnim.SetBool("turnAround", true);
-           
-        }
-   */
+  
+ 
 
     }
 
     void ChangeHeadphone()  //Her kaç yýlda bir kulaklýk deðiþecek kodu;
     {
-        /*
-        previousHeadphoneLevel = currentHeadphoneLevel;
-        previousHeadphone = currentHeadphone;
 
-        if (year <= changeHeadphoneYear)
-        {
-            headphones[0].SetActive(true);
-            currentHeadphone = headphones[0].gameObject;
-            sadFace.Play();
-        }
+        previousHeadphoneLevel = currentHeadphoneLevel;
+
+
         for (int i = 1; i < headphones.Count; i++)
         {
 
 
             if (year >= changeHeadphoneYear * i)
             {
-                if (headphones[i-1].activeSelf)
-                {
-                    happyFace.Play();
-                    upgradeEffect.Play();
-                    StartCoroutine(AnimatorControl());
-                }
+                
+            
+              
                 headphones[i - 1].SetActive(false);
                 headphones[i].SetActive(true);
 
-                currentHeadphoneLevel = i;
-                currentHeadphone = headphones[i].gameObject;
-               
+              
 
+                currentHeadphoneLevel = i;
+
+           
             }
             else
             {
                 headphones[i].SetActive(false);
             }
+
+     
         }
+
+        if (previousHeadphoneLevel < currentHeadphoneLevel)
+        {
+            happyFace.Play();
+            StartCoroutine(AnimatorControl());
+        }
+        else if (previousHeadphoneLevel > currentHeadphoneLevel)
+        {
+            sadFace.Play();
+        }
+       
 
 
 
@@ -142,7 +133,7 @@ public class EvolutionControl : MonoBehaviour
         yield return new WaitForSeconds(1);
         playerAnim.SetBool("turnAround", false);
     }
-        */
+        
         }
  
-}
+
