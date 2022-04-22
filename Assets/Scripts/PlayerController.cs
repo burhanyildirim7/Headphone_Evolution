@@ -67,7 +67,8 @@ public class PlayerController : MonoBehaviour
             GameObject.FindGameObjectWithTag("KarakterPaketi").GetComponent<KarakterPaketiMovement>()._speed = 0;
            
             //gameObject.transform.parent = null;
-            karakterPaketi.transform.DOMoveX(0,1).OnComplete(()=> karakterPaketi.transform.DOMoveY(15,1));
+            karakterPaketi.transform.DOMove(other.gameObject.transform.position,1).OnComplete(()=> RaiseControl());
+          
             
 
             Debug.Log("Temas Var");
@@ -76,7 +77,16 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void RaiseControl()
+    {
 
+
+        // karakterPaketi.transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.04f, 3);
+        transform.parent = GameObject.FindGameObjectWithTag("finishWall").transform;
+        GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.04f, 3);
+
+
+    }
     /// <summary>
     /// Bu fonksiyon her level baslarken cagrilir. 
     /// </summary>

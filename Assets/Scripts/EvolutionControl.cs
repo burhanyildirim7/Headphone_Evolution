@@ -44,7 +44,7 @@ public class EvolutionControl : MonoBehaviour
             year = 0;
         }
 
-      
+        Debug.Log(year);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,7 +72,7 @@ public class EvolutionControl : MonoBehaviour
 
         }
 
-   
+   /*
 
         if (currentHeadphoneLevel < previousHeadphoneLevel && currentHeadphone != previousHeadphone)
         {
@@ -87,13 +87,13 @@ public class EvolutionControl : MonoBehaviour
             playerAnim.SetBool("turnAround", true);
            
         }
-
+   */
 
     }
 
     void ChangeHeadphone()  //Her kaç yýlda bir kulaklýk deðiþecek kodu;
     {
-
+        /*
         previousHeadphoneLevel = currentHeadphoneLevel;
         previousHeadphone = currentHeadphone;
 
@@ -142,6 +142,7 @@ public class EvolutionControl : MonoBehaviour
         yield return new WaitForSeconds(1);
         playerAnim.SetBool("turnAround", false);
     }
-
+        */
+        }
  
 }

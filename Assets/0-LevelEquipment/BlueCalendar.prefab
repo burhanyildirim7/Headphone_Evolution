@@ -180,9 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '+300
-
-    YEARS'
+  m_Text: 
 --- !u!1 &5520356991102851599
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b98d36f259e0346b0572929fa431bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valueOfDoorText: {fileID: 0}
+  valueOfDoorText: {fileID: 5520356991009512229}
   valueOfDoor: 
   intValueOfDoor: 0
+  day: 0
+  week: 0
+  month: 0
+  year: 0
