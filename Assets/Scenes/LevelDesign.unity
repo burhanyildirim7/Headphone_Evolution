@@ -1449,6 +1449,7 @@ MonoBehaviour:
   score: 0
   elmas: 0
   isContinue: 0
+  isFinish: 0
 --- !u!4 &1124119774
 Transform:
   m_ObjectHideFlags: 0
@@ -1737,6 +1738,7 @@ MonoBehaviour:
   collectibleDegeri: 10
   xVarMi: 1
   collectibleVarMi: 1
+  _konfetiPaketi: {fileID: 0}
 --- !u!54 &1443049515
 Rigidbody:
   m_ObjectHideFlags: 0
