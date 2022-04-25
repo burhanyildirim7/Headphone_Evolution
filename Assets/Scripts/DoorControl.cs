@@ -15,6 +15,8 @@ public class DoorControl : MonoBehaviour
     public bool month;
     public bool year;
 
+    public ParticleSystem _kapiEfekti;
+
     GameObject EvolutionControl;
 
     void Start()
@@ -23,12 +25,12 @@ public class DoorControl : MonoBehaviour
 
         EvolutionControl = GameObject.FindGameObjectWithTag("Player");
 
-      
+
 
         if (day)
         {
             valueOfDoorText.text = "" + valueOfDoor + " DAY";
-            intValueOfDoor = int.Parse(valueOfDoor)/365;
+            intValueOfDoor = int.Parse(valueOfDoor) / 365;
         }
 
         else if (week)
@@ -50,7 +52,10 @@ public class DoorControl : MonoBehaviour
         }
     }
 
-    
 
+    public void EfektPatlat()
+    {
+        _kapiEfekti.Play();
+    }
 
 }

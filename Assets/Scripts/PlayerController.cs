@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public bool collectibleVarMi = true;
 
     GameObject karakterPaketi;
+
+    public GameObject _konfetiPaketi;
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -22,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         StartingEvents();
-        karakterPaketi = GameObject.FindGameObjectWithTag("KarakterPaketi");
+
     }
 
     /// <summary>
@@ -32,12 +35,12 @@ public class PlayerController : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-       
+
 
         if (other.CompareTag("collectible"))
         {
             // COLLECTIBLE CARPINCA YAPILACAKLAR...
-            GameController.instance.SetScore(collectibleDegeri); // ORNEK KULLANIM detaylar icin ctrl+click yapip fonksiyon aciklamasini oku
+            // ORNEK KULLANIM detaylar icin ctrl+click yapip fonksiyon aciklamasini oku
 
         }
         else if (other.CompareTag("engel"))
@@ -45,45 +48,57 @@ public class PlayerController : MonoBehaviour
             // ENGELELRE CARPINCA YAPILACAKLAR....
             GameController.instance.SetScore(-collectibleDegeri); // ORNEK KULLANIM detaylar icin ctrl+click yapip fonksiyon aciklamasini oku
             if (GameController.instance.score < 0) // SKOR SIFIRIN ALTINA DUSTUYSE
-			{
+            {
                 // FAİL EVENTLERİ BURAYA YAZILACAK..
                 GameController.instance.isContinue = false; // çarptığı anda oyuncunun yerinde durması ilerlememesi için
                 UIController.instance.ActivateLooseScreen(); // Bu fonksiyon direk çağrılada bilir veya herhangi bir effect veya animasyon bitiminde de çağrılabilir..
-                // oyuncu fail durumunda bu fonksiyon çağrılacak.. 
-			}
+                                                             // oyuncu fail durumunda bu fonksiyon çağrılacak.. 
+            }
 
 
         }
-        else if (other.CompareTag("finish")) 
-        {
-            FinishScene();
-
-
-
-        }
-
         else if (other.gameObject.tag == "finishWall")
         {
-            GameObject.FindGameObjectWithTag("KarakterPaketi").GetComponent<KarakterPaketiMovement>()._speed = 0;
-           
-            //gameObject.transform.parent = null;
-            karakterPaketi.transform.DOMove(other.gameObject.transform.position,1).OnComplete(()=> RaiseControl());
-          
-            
 
-            Debug.Log("Temas Var");
+            //GameObject.FindGameObjectWithTag("KarakterPaketi").GetComponent<KarakterPaketiMovement>()._speed = 0;
+
+            GameController.instance.isContinue = false;
+
+            //gameObject.transform.parent = null;
+            transform.parent.transform.DOMove(other.gameObject.transform.position, 1).OnComplete(() => RaiseControl());
+
+
+
+            // Debug.Log("Temas Var");
         }
-      
+
 
     }
 
     void RaiseControl()
     {
-
+        MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
 
         // karakterPaketi.transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.04f, 3);
         transform.parent = GameObject.FindGameObjectWithTag("finishWall").transform;
-        GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.04f, 3);
+
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year < 500)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.042f, 5).OnComplete(() => FinishScene());
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year >= 500 && GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year < 1500)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.042f, 7).OnComplete(() => FinishScene());
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year >= 1500)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.042f, 10).OnComplete(() => FinishScene());
+        }
+        else
+        {
+
+        }
+
 
 
     }
@@ -92,20 +107,37 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void StartingEvents()
     {
-
+        karakterPaketi = GameObject.FindGameObjectWithTag("KarakterPaketi");
+        transform.parent = GameObject.FindGameObjectWithTag("UstPaket").transform;
+        karakterPaketi.transform.position = Vector3.zero;
         transform.parent.transform.rotation = Quaternion.Euler(0, 0, 0);
         transform.parent.transform.position = Vector3.zero;
         GameController.instance.isContinue = false;
+        GameController.instance.isFinish = false;
         GameController.instance.score = 0;
-        transform.position = new Vector3(0, transform.position.y, 0);
-        GetComponent<Collider>().enabled = true;
+        transform.position = new Vector3(0, 0, 0);
+        //GetComponent<Collider>().enabled = true;
+
+        GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().Resetle();
+        //GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().ChangeHeadphone();
+        _konfetiPaketi.SetActive(false);
 
     }
 
-    void FinishScene()
+    private void FinishScene()
     {
+        MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+
+        _konfetiPaketi.SetActive(true);
         GameController.instance.isContinue = false;
-        GameController.instance.ScoreCarp(7);
+        GameController.instance.SetScore(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year / 10);
+        GameController.instance.ScoreCarp(1);
+
+        Invoke("WinAc", 1f);
+    }
+
+    private void WinAc()
+    {
         UIController.instance.ActivateWinScreen();
     }
 

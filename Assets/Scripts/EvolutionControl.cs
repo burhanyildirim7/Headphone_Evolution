@@ -23,13 +23,13 @@ public class EvolutionControl : MonoBehaviour
     int previousHeadphoneLevel;
 
     bool headphoneBetter;
-    
+
     void Start()
     {
-      
+
         playerAnim = GetComponent<Animator>();
 
-     
+
     }
 
     // Update is called once per frame
@@ -37,12 +37,12 @@ public class EvolutionControl : MonoBehaviour
     {
         yearText.text = "" + year;
 
-        if (year<=0)
+        if (year <= 0)
         {
             year = 0;
         }
 
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,21 +50,37 @@ public class EvolutionControl : MonoBehaviour
 
         if (other.tag == "increaseDoor")
         {
+            MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+
+            other.gameObject.GetComponent<DoorControl>().EfektPatlat();
+
             year += other.gameObject.GetComponent<DoorControl>().intValueOfDoor;
-           
+
             ChangeHeadphone();
+
+
+
+            Destroy(other.gameObject);
 
         }
 
         if (other.tag == "decreaseDoor")
         {
-            if (Mathf.Abs(other.gameObject.GetComponent<DoorControl>().intValueOfDoor)>year)  // GameOver
+            MoreMountains.NiceVibrations.MMVibrationManager.Haptic(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
+
+            other.gameObject.GetComponent<DoorControl>().EfektPatlat();
+
+            if (Mathf.Abs(other.gameObject.GetComponent<DoorControl>().intValueOfDoor) > year)  // GameOver
             {
-                Time.timeScale = 0;
+                GameController.instance.isContinue = false;
+                Invoke("LoseAc", 1f);
             }
+
             year += other.gameObject.GetComponent<DoorControl>().intValueOfDoor;
 
             ChangeHeadphone();
+
+            Destroy(other.gameObject);
 
 
 
@@ -72,12 +88,17 @@ public class EvolutionControl : MonoBehaviour
 
 
 
-  
- 
+
+
 
     }
 
-    void ChangeHeadphone()  //Her kaç yýlda bir kulaklýk deðiþecek kodu;
+    private void LoseAc()
+    {
+        UIController.instance.ActivateLooseScreen();
+    }
+
+    public void ChangeHeadphone()  //Her ka? y?lda bir kulakl?k de?i?ecek kodu;
     {
 
         previousHeadphoneLevel = currentHeadphoneLevel;
@@ -89,36 +110,37 @@ public class EvolutionControl : MonoBehaviour
 
             if (year >= changeHeadphoneYear * i)
             {
-                
-            
-              
+
+
+
                 headphones[i - 1].SetActive(false);
                 headphones[i].SetActive(true);
 
-              
+
 
                 currentHeadphoneLevel = i;
 
-           
+
             }
             else
             {
                 headphones[i].SetActive(false);
             }
 
-     
+
         }
 
         if (previousHeadphoneLevel < currentHeadphoneLevel)
         {
             happyFace.Play();
+            upgradeEffect.Play();
             StartCoroutine(AnimatorControl());
         }
         else if (previousHeadphoneLevel > currentHeadphoneLevel)
         {
             sadFace.Play();
         }
-       
+
 
 
 
@@ -133,7 +155,16 @@ public class EvolutionControl : MonoBehaviour
         yield return new WaitForSeconds(1);
         playerAnim.SetBool("turnAround", false);
     }
-        
-        }
- 
+
+    public void Resetle()
+    {
+        year = 0;
+        previousHeadphoneLevel = 0;
+        currentHeadphoneLevel = 0;
+        ChangeHeadphone();
+        headphones[0].SetActive(true);
+    }
+
+}
+
 

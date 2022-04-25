@@ -6,13 +6,9 @@ public class KarakterPaketiMovement : MonoBehaviour
 {
     [SerializeField] public float _speed;
     int totalYear;
-    void Start()
-    {
-     
-    }
 
 
-    void FixedUpdate()
+    void Update()
     {
         if (GameController.instance.isContinue == true)
         {
@@ -22,14 +18,10 @@ public class KarakterPaketiMovement : MonoBehaviour
         {
 
         }
-        
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-      
 
     }
+
+
 
 
 }

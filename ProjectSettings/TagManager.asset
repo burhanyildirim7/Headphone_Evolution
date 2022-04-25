@@ -17,6 +17,7 @@ TagManager:
   - increaseDoor
   - decreaseDoor
   - finishWall
+  - UstPaket
   layers:
   - Default
   - TransparentFX
