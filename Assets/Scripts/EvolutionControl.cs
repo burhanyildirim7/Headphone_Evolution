@@ -37,10 +37,7 @@ public class EvolutionControl : MonoBehaviour
     {
         yearText.text = "" + year;
 
-        if (year >= 2022)
-        {
-            year = 2022;
-        }
+    
 
     
     }
