@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         // karakterPaketi.transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.04f, 3);
         transform.parent = GameObject.FindGameObjectWithTag("finishWall").transform;
-
+        /*
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year < 500)
         {
             GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.FindGameObjectWithTag("Player").GetComponent<EvolutionControl>().year * 0.042f, 5).OnComplete(() => FinishScene());
@@ -98,8 +98,100 @@ public class PlayerController : MonoBehaviour
         {
 
         }
-
-
+        */
+        
+        if (GetComponent<EvolutionControl>().currentHeadphoneLevel+1 == 1)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("1x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 2)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("1.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 3)
+        {
+            if (GetComponent<EvolutionControl>().year < 1882)
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("2x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("2.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 4)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("3x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 5)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("3.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 6)
+        {
+            if (GetComponent<EvolutionControl>().year < 1921)
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("4x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("4.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+          
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 7)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("5x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 8)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("5.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 9)
+        {
+            if (GetComponent<EvolutionControl>().year < 1960)
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("6x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("6.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 10)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("7x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 11)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("7.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 12)
+        {
+            if (GetComponent<EvolutionControl>().year < 1999)
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("8x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("8.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 13)
+        {
+            if (GetComponent<EvolutionControl>().year < 2019)
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("9x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+            else
+            {
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("9.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            }
+        }
+        else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 14)
+        {
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("10x").transform.position.y, 5).OnComplete(() => FinishScene());
+        }
 
     }
     /// <summary>

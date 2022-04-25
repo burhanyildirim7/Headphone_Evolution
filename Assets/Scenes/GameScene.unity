@@ -2315,6 +2315,7 @@ MonoBehaviour:
   sadFace: {fileID: 1571943272}
   happyFace: {fileID: 1206540419}
   upgradeEffect: {fileID: 1412342679}
+  currentHeadphoneLevel: 0
 --- !u!95 &1443049517
 Animator:
   serializedVersion: 4

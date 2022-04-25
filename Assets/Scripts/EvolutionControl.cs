@@ -19,7 +19,7 @@ public class EvolutionControl : MonoBehaviour
     Animator playerAnim;
 
 
-    int currentHeadphoneLevel;
+    public int currentHeadphoneLevel;
     int previousHeadphoneLevel;
 
     bool headphoneBetter;
@@ -42,6 +42,7 @@ public class EvolutionControl : MonoBehaviour
             year = 2022;
         }
 
+    
     }
 
     private void OnTriggerEnter(Collider other)
@@ -157,7 +158,7 @@ public class EvolutionControl : MonoBehaviour
 
     public void Resetle()
     {
-        year = 0;
+        year = 1850;
         previousHeadphoneLevel = 0;
         currentHeadphoneLevel = 0;
         ChangeHeadphone();
