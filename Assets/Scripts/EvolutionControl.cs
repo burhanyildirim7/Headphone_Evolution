@@ -29,7 +29,7 @@ public class EvolutionControl : MonoBehaviour
 
         playerAnim = GetComponent<Animator>();
 
-
+        year = 1850;
     }
 
     // Update is called once per frame
@@ -37,11 +37,10 @@ public class EvolutionControl : MonoBehaviour
     {
         yearText.text = "" + year;
 
-        if (year <= 0)
+        if (year >= 2022)
         {
-            year = 0;
+            year = 2022;
         }
-
 
     }
 
@@ -100,7 +99,7 @@ public class EvolutionControl : MonoBehaviour
 
     public void ChangeHeadphone()  //Her ka? y?lda bir kulakl?k de?i?ecek kodu;
     {
-
+        
         previousHeadphoneLevel = currentHeadphoneLevel;
 
 
@@ -108,7 +107,7 @@ public class EvolutionControl : MonoBehaviour
         {
 
 
-            if (year >= changeHeadphoneYear * i)
+            if (year >=1850 + changeHeadphoneYear * i )
             {
 
 

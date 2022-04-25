@@ -1618,12 +1618,16 @@ PrefabInstance:
       value: BlueCalendar (2)
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
-      propertyPath: month
+      propertyPath: year
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
+      propertyPath: month
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
       propertyPath: valueOfDoor
-      value: +840
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4985f0ea2b7411458080e173a873295, type: 3}
@@ -1867,7 +1871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
       propertyPath: valueOfDoor
-      value: +350
+      value: +13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4985f0ea2b7411458080e173a873295, type: 3}
@@ -2208,7 +2212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
       propertyPath: valueOfDoor
-      value: +540
+      value: +13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4985f0ea2b7411458080e173a873295, type: 3}

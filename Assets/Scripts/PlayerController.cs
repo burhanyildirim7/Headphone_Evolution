@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             // ENGELELRE CARPINCA YAPILACAKLAR....
             GameController.instance.SetScore(-collectibleDegeri); // ORNEK KULLANIM detaylar icin ctrl+click yapip fonksiyon aciklamasini oku
-            if (GameController.instance.score < 0) // SKOR SIFIRIN ALTINA DUSTUYSE
+            if (GameController.instance.score < 1850) // SKOR SIFIRIN ALTINA DUSTUYSE
             {
                 // FAİL EVENTLERİ BURAYA YAZILACAK..
                 GameController.instance.isContinue = false; // çarptığı anda oyuncunun yerinde durması ilerlememesi için
