@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: valueOfDoor
-      value: -280
+      value: -312
       objectReference: {fileID: 0}
     - target: {fileID: 8874477496180342651, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: m_Name

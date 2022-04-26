@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: valueOfDoor
-      value: -468
+      value: -312
       objectReference: {fileID: 0}
     - target: {fileID: 8874477496180342651, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: m_Name
@@ -821,15 +821,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: day
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
-      propertyPath: week
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
+      propertyPath: week
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: valueOfDoor
-      value: -7300
+      value: -1456
       objectReference: {fileID: 0}
     - target: {fileID: 8874477496180342651, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: m_Name
@@ -1383,15 +1383,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: day
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
-      propertyPath: month
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
+      propertyPath: month
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6302226598306307926, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: valueOfDoor
-      value: -3650
+      value: -156
       objectReference: {fileID: 0}
     - target: {fileID: 8874477496180342651, guid: 88f26a4ce0aed214d976cd7e2268fb36, type: 3}
       propertyPath: m_Name
@@ -1533,7 +1533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
       propertyPath: valueOfDoor
-      value: +468
+      value: +312
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4985f0ea2b7411458080e173a873295, type: 3}
@@ -1780,8 +1780,12 @@ PrefabInstance:
       value: BlueCalendar (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
-      propertyPath: week
+      propertyPath: day
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
+      propertyPath: week
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
       propertyPath: year
@@ -1789,7 +1793,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6972210625515731490, guid: c4985f0ea2b7411458080e173a873295, type: 3}
       propertyPath: valueOfDoor
-      value: +1456
+      value: +9490
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4985f0ea2b7411458080e173a873295, type: 3}
