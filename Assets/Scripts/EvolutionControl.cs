@@ -37,9 +37,9 @@ public class EvolutionControl : MonoBehaviour
     {
         yearText.text = "" + year;
 
-    
 
-    
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -97,7 +97,7 @@ public class EvolutionControl : MonoBehaviour
 
     public void ChangeHeadphone()  //Her ka? y?lda bir kulakl?k de?i?ecek kodu;
     {
-        
+
         previousHeadphoneLevel = currentHeadphoneLevel;
 
 
@@ -105,7 +105,7 @@ public class EvolutionControl : MonoBehaviour
         {
 
 
-            if (year >=1920 + changeHeadphoneYear * i )
+            if (year >= 1920 + changeHeadphoneYear * i)
             {
 
 
@@ -155,7 +155,7 @@ public class EvolutionControl : MonoBehaviour
 
     public void Resetle()
     {
-        year = 1850;
+        year = 1920;
         previousHeadphoneLevel = 0;
         currentHeadphoneLevel = 0;
         ChangeHeadphone();
