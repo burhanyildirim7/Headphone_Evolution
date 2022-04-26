@@ -99,82 +99,82 @@ public class PlayerController : MonoBehaviour
 
         }
         */
-        
-        if (GetComponent<EvolutionControl>().currentHeadphoneLevel+1 == 1)
+
+        if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 1)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("1x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("1x").transform.position.y, 1).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 2)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("1.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("1.5x").transform.position.y, 1).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 3)
         {
             if (GetComponent<EvolutionControl>().year < 1882)
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("2x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("2x").transform.position.y, 1.5f).OnComplete(() => FinishScene());
             }
             else
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("2.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("2.5x").transform.position.y, 1.5f).OnComplete(() => FinishScene());
             }
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 4)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("3x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("3x").transform.position.y, 2).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 5)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("3.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("3.5x").transform.position.y, 2).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 6)
         {
             if (GetComponent<EvolutionControl>().year < 1921)
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("4x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("4x").transform.position.y, 2.5f).OnComplete(() => FinishScene());
             }
             else
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("4.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("4.5x").transform.position.y, 2.5f).OnComplete(() => FinishScene());
             }
-          
+
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 7)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("5x").transform.position.y, 3).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 8)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("5.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("5.5x").transform.position.y, 3).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 9)
         {
             if (GetComponent<EvolutionControl>().year < 1960)
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("6x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("6x").transform.position.y, 3.5f).OnComplete(() => FinishScene());
             }
             else
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("6.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("6.5x").transform.position.y, 3.5f).OnComplete(() => FinishScene());
             }
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 10)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("7x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("7x").transform.position.y, 4).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 11)
         {
-            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("7.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+            GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("7.5x").transform.position.y, 4).OnComplete(() => FinishScene());
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 12)
         {
             if (GetComponent<EvolutionControl>().year < 1999)
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("8x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("8x").transform.position.y, 4.5f).OnComplete(() => FinishScene());
             }
             else
             {
-                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("8.5x").transform.position.y, 5).OnComplete(() => FinishScene());
+                GameObject.FindGameObjectWithTag("finishWall").transform.DOMoveY(GameObject.Find("8.5x").transform.position.y, 4.5f).OnComplete(() => FinishScene());
             }
         }
         else if (GetComponent<EvolutionControl>().currentHeadphoneLevel + 1 == 13)
